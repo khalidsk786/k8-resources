@@ -6,6 +6,6 @@ labels:
   project: expense
   component : backend
   environment: dev
-enf:
+spec:
 - name: nginx
   image: nginx
