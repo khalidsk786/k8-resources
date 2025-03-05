@@ -7,5 +7,6 @@ labels:
   component : backend
   environment: dev
 spec:
-- name: nginx
-  image: nginx
+ containers:
+  - name: nginx
+    image: nginx
