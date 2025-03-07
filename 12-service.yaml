@@ -4,8 +4,8 @@ metadata:
   name: nginx
 spec:
   selector: # labels are used as selectors
-    peoject: Expense
-    component: backend
+    project: expense
+    component : backend
     environment: dev
   ports:
   - protocol: TCP
