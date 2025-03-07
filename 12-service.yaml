@@ -8,7 +8,7 @@ spec:
     component: backend
     environment: dev
   ports:
-    protocol: TCP
+  - protocol: TCP
     port: 80
     targetPort: 80
 ---
