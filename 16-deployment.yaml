@@ -1,4 +1,4 @@
-kind: Deployments
+kind: Deployment
 apiVersion: v1
 metadata:
   name: nginx
