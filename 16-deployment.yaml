@@ -24,6 +24,23 @@ spec:
     spec:
       containers:
       - name: nginx
-        image: nginx
+      #manifesto file
+        image: khalidaws2024/deployment:1.0
         ports:
         - containerPort: 80
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-lb
+spec:
+  type: LoadBalancer
+  selector: # labels are used as selectors
+    app: nginx
+    tier: frontend
+    purpose: deployment
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30007
