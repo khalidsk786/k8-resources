@@ -1,5 +1,5 @@
 kind: Deployment
-apiVersion: v1
+apiVersion: apps/v1
 metadata:
   name: nginx
 # labels of deployment resource
@@ -18,7 +18,7 @@ spec:
 template:
   metadata:
     labels:
-      labels: nginx
+      app: nginx
       tier: frontend
       purpose: deployment
 spec:
