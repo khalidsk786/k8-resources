@@ -4,9 +4,9 @@ metadata:
   name: nginx
 # labels of deployment resource
   labels:
-   app: nginx
-   tier: frontend
-   purpose: deployment
+    app: nginx
+    tier: frontend
+    purpose: deployment
 spec:
   replicas: 3
   selector:
@@ -21,9 +21,9 @@ spec:
        app: nginx
        tier: frontend
        purpose: deployment
-  spec:
-    containers:
-    - name: nginx
-      image: nginx
-      ports:
-      - containerport: 80
+    spec:
+      containers:
+      - name: nginx
+        image: nginx
+        ports:
+        - containerport: 80
