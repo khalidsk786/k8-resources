@@ -25,7 +25,7 @@ spec:
       containers:
       - name: nginx
       #manifesto file
-        image: khalidaws2024/deployment:1.0
+        image: khalidaws2024/deployment:2.0
         ports:
         - containerPort: 80
 ---
