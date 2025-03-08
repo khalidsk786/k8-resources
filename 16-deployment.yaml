@@ -15,15 +15,15 @@ spec:
       tier: frontend
       purpose: deployment
 #pod template
-template:
-  metadata:
-    labels:
-      app: nginx
-      tier: frontend
-      purpose: deployment
-spec:
-  containers:
-  - name: nginx
-    image: nginx
-    ports:
-    - containerport: 80
+  template:
+    metadata:
+      labels:
+       app: nginx
+       tier: frontend
+       purpose: deployment
+  spec:
+    containers:
+    - name: nginx
+      image: nginx
+      ports:
+      - containerport: 80
