@@ -1,11 +1,11 @@
 apiVersion: v1
 kind: PersistentVolumeClaim
 metadata:
-  name: ebs-static
+  name: ebs-static1
 spec:
   storageClassName: "" # Empty string must be explicitly set otherwise default StorageClass will be set
   #pv name
-  volumeName: ebs-static
+  volumeName: ebs-static1
   accessModes:
     - ReadWriteOnce
   resources:
@@ -15,7 +15,7 @@ spec:
 apiVersion: v1
 kind: Pod
 metadata:
-  name: ebs-static
+  name: ebs-static1
 spec:
   nodeSelector:
     topology.kubernetes.io/zone: us-east-1b
@@ -30,4 +30,4 @@ spec:
   volumes:
   - name: persistent-storage
     persistentVolumeClaim:
-      claimName: ebs-static
+      claimName: ebs-static1
