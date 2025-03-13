@@ -29,3 +29,20 @@ spec:
   containers:
   - name: nginx
     image: nginx
+---
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-lb
+spec:
+  type: LoadBalancer
+  selector: # labels are used as selectors
+    project: expense
+    component : backend
+    environment: dev
+    demo: lb
+  ports:
+  - protocol: TCP
+    port: 80
+    targetPort: 80
+    nodePort: 30007
