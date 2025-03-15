@@ -3,5 +3,5 @@ kind: StorageClass
 metadata:
   name: ebs-sc
 provisioner: ebs.csi.aws.com
-reclaimPolicy: Retain # default value is Delete
+reclaimPolicy: Retain # default value is Delete #if pod deleted data will be the remains stay
 volumeBindingMode: WaitForFirstConsumer
