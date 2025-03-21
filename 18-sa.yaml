@@ -9,8 +9,7 @@ spec:
  initContainers:
  - name: awscli
    image: amazon/aws-cli
-   command: ['sh', '-c', ' aws secretsmanager get-secret-value \
-    --secret-id expense/mysql/creds --query SecretString --output text > /secrets/.env ']
+   command: ['sh', '-c', ' aws secretsmanager get-secret-value --secret-id expense/mysql/creds --query SecretString --output text > /secrets/.env ']
     volumeMounts: # init contaciner
     - mountPath: /secrets
       name: secret-volume
