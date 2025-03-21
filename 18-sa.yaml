@@ -1,25 +1,24 @@
 kind: Pod
 apiVersion: v1
 metadata:
- name: sa-demo
- namespace: expense
+  name: sa-demo
+  namespace: expense
 spec:
-  # one pod can contain multiple container
- serviceAccount: expense-mysql-secret
- initContainers:
- - name: awscli
-   image: amazon/aws-cli
-   #command: ['sh', '-c', ' aws secretsmanager get-secret-value --secret-id expense/mysql/creds --query SecretString --output text > /secrets/.env ']
-   command:  ['sh', '-c', 'aws secretsmanager get-secret-value --secret-id expense/mysql/creds --query SecretString --output text > /secrets/.env ']
-   volumeMounts: # init contaciner
-   - mountPath: /secrets
-     name: secret-volume
-containers:
-- name: nginx
-  image: nginx
-  volumeMounts: # main container
-  - mountPath: /secrets
-    name: secret-volume
+  # one pod can contain multiple containers
+  serviceAccount: expense-mysql-secret
+  initContainers:
+  - name: awscli
+    image: amazon/aws-cli
+    command:  ['sh', '-c', 'aws secretsmanager get-secret-value --secret-id expense/mysql/creds --query SecretString --output text > /secrets/.env ']
+    volumeMounts:
+    - mountPath: /secrets
+      name: secret-volume
+  containers:
+  - name: nginx
+    image: nginx
+    volumeMounts:
+    - mountPath: /secrets
+      name: secret-volume
   volumes:
   - name: secret-volume
     emptyDir: {}
