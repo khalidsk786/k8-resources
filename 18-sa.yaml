@@ -14,12 +14,12 @@ spec:
    volumeMounts: # init contaciner
    - mountPath: /secrets
      name: secret-volume
-   containers:
-   - name: nginx
-     image: nginx
-   volumeMounts: # main container
-   - mountPath: /secrets
-     name: secret-volume
-   volumes:
-   - name: secret-volume
-     emptyDir: {}
+containers:
+- name: nginx
+  image: nginx
+  volumeMounts: # main container
+  - mountPath: /secrets
+    name: secret-volume
+  volumes:
+  - name: secret-volume
+    emptyDir: {}
