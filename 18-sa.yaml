@@ -5,7 +5,7 @@ metadata:
  namespace: expense
 spec:
   # one pod can contain multiple container
- ServiceAccount: expense-mysql-secret
+ ServiceAccount: 
  containers:
  - name: nginx
    image: nginx
