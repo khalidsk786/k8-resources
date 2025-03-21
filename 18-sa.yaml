@@ -11,6 +11,16 @@ spec:
    image: amazon/aws-cli
    command: ['sh', '-c', ' aws secretsmanager get-secret-value \
     --secret-id expense/mysql/creds --query SecretString --output text > ']
- containers:
- - name: nginx
-   image: nginx
+    volumeMounts: # init contaciner
+    - mountPath: /secrets
+      name: secret-volume
+    containers:
+    - name: nginx
+      image: nginx
+    volumeMounts: # main container
+    - mountPath: /secrets
+      name: secret-volume
+    volumes:
+    - name: secret-volume
+      emptyDir: {}
+ 
